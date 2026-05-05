@@ -1,98 +1,116 @@
-import React from 'react';
-import '../styles/Skills.css';
+import Reveal from "./Reveal";
 
-const Skills: React.FC = () => {
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      skills: [
-        { name: 'React', level: 90 },
-        { name: 'Next.js', level: 85 },
-        { name: 'React Native', level: 80 },
-        { name: 'JavaScript/TypeScript', level: 88 }
-      ]
-    },
-    {
-      title: 'Backend',
-      skills: [
-        { name: 'Django', level: 92 },
-        { name: 'Django REST Framework', level: 90 },
-        { name: 'Node.js', level: 75 },
-        { name: 'Python', level: 88 }
-      ]
-    },
-    {
-      title: 'Blockchain',
-      skills: [
-        { name: 'SUI Network', level: 85 },
-        { name: 'Move Language', level: 80 },
-        { name: 'NFT Minting', level: 82 },
-        { name: 'Smart Contracts', level: 78 }
-      ]
-    },
-    {
-      title: 'AI & Database',
-      skills: [
-        { name: 'OpenAI API', level: 85 },
-        { name: 'PostgreSQL', level: 88 },
-        { name: 'Firebase', level: 90 },
-        { name: 'CockroachDB', level: 75 }
-      ]
-    }
-  ];
+const skillCategories = [
+  {
+    title: "Frontend",
+    description:
+      "Interfaces that feel polished, responsive, and production-ready across web and mobile.",
+    items: ["React", "Next.js", "React Native", "Android", "iOS", "TypeScript"],
+  },
+  {
+    title: "Backend and APIs",
+    description:
+      "Scalable services, clean API design, backend reliability, and production delivery discipline.",
+    items: [
+      "FastAPI",
+      "Django",
+      "Python",
+      "RESTful APIs",
+      "Redis",
+      "Event-Driven Patterns",
+    ],
+  },
+  {
+    title: "Blockchain and Wallet Systems",
+    description:
+      "Practical blockchain exploration built around wallet flows, token movement, and secure transaction models.",
+    items: [
+      "Sui",
+      "Stellar",
+      "Wallet Interactions",
+      "Token Transfers",
+      "Secure Transaction Models",
+    ],
+  },
+  {
+    title: "Cloud and Tools",
+    description:
+      "Deployment, infrastructure, databases, and team tooling that keep releases moving.",
+    items: [
+      "PostgreSQL",
+      "CockroachDB",
+      "Docker",
+      "GCP",
+      "Infrastructure Setup",
+      "Git",
+      "Production Deployment",
+      "Postman",
+    ],
+  },
+];
 
-  const tools = [
-    'Git', 'Docker', 'Vercel', 'GCP', 'Firebase Hosting', 
-    'CI/CD', 'Postman', 'JWT', 'RESTful APIs'
-  ];
-
+export default function Skills() {
   return (
-    <section id="skills" className="skills">
-      <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Skills & Expertise</h2>
-          <p className="section-subtitle">
-            Technologies and tools I use to bring ideas to life
+    <section
+      id="skills"
+      className="relative scroll-mt-24 overflow-hidden px-4 py-24 sm:px-6 lg:px-12"
+    >
+      <div className="absolute right-[-8%] top-10 h-80 w-80 rounded-full bg-violet-500/10 blur-[120px]" />
+      <div className="absolute left-[-6%] bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-[120px]" />
+
+      <div className="relative mx-auto max-w-7xl">
+        <Reveal variant="up" className="max-w-3xl">
+          <p className="text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
+            Technical Arsenal
           </p>
-        </div>
+          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            A practical stack for building{" "}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
+              full-stack products
+            </span>
+            .
+          </h2>
+          <p className="mt-6 text-base leading-8 text-slate-400 sm:text-lg">
+            The stack I rely on to build product-focused fintech, B2B, and
+            real-time systems across web, mobile, backend infrastructure, and
+            blockchain exploration.
+          </p>
+        </Reveal>
 
-        <div className="skills-grid">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {skillCategories.map((category, index) => (
-            <div key={index} className="skill-category">
-              <h3 className="category-title">{category.title}</h3>
-              <div className="skills-list">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="skill-item">
-                    <div className="skill-info">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-percentage">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <div 
-                        className="skill-progress" 
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+            <Reveal
+              key={category.title}
+              variant={index % 2 === 0 ? "up" : "rotate"}
+              delay={index * 90}
+              className="h-full"
+            >
+              <article className="group flex h-full flex-col rounded-[2rem] border border-white/10 bg-white/5 p-7 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/[0.08]">
+                <span className="text-xs font-medium uppercase tracking-[0.28em] text-sky-300">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-4 text-2xl font-semibold text-white">
+                  {category.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-400">
+                  {category.description}
+                </p>
 
-        <div className="tools-section">
-          <h3 className="tools-title">Tools & Technologies</h3>
-          <div className="tools-grid">
-            {tools.map((tool, index) => (
-              <div key={index} className="tool-tag">
-                {tool}
-              </div>
-            ))}
-          </div>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {category.items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-white/10 bg-black/30 px-4 py-2 text-sm text-slate-300 transition-colors duration-300 group-hover:border-white/20 group-hover:text-white"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Skills;
+}
