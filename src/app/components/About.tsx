@@ -60,7 +60,7 @@ export default function About() {
                 <img
                   src="/mine2.jpeg"
                   alt="Amarthi Manikrishna portrait"
-                  className="h-64 sm:h-80 md:h-[420px] lg:h-[450px] w-full object-cover object-top"
+                  className="h-[22rem] w-full object-cover object-[center_18%] sm:h-80 md:h-[420px] md:object-top lg:h-[450px]"
                 />
               </div>
             </div>
