@@ -95,7 +95,7 @@ export default function Hero() {
 
             <Reveal variant="up" delay={220}>
               <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
-                Product-Focused{" "}
+                Full Stack Developer &{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 via-cyan-200 to-violet-300">
                   Technical Architect
                 </span>
