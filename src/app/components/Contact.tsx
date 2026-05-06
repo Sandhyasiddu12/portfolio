@@ -1,260 +1,352 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Linkedin, Github } from 'lucide-react';
-import emailjs from '@emailjs/browser';
-import '../styles/Contact.css';
+"use client";
 
-const Contact: React.FC = () => {
+import {
+  CheckCircle2,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  type LucideIcon,
+} from "lucide-react";
+import { useState } from "react";
+import Reveal from "./Reveal";
+
+const contactInfo: Array<{
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  href?: string;
+}> = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "maniamarthi@gmail.com",
+    href: "mailto:maniamarthi@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 9502728137",
+    href: "tel:+919502728137",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "East Godavari, Andhra Pradesh",
+  },
+];
+
+const socialLinks: Array<{
+  icon: LucideIcon;
+  label: string;
+  href: string;
+}> = [
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/manikrishna-amarthi-001427217/",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/manikrishnaamarthi",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    href: "mailto:maniamarthi@gmail.com",
+  },
+];
+
+export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">(
+    "idle"
+  );
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
 
     try {
-      // EmailJS configuration
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        to_email: 'maniamarthi@gmail.com'
-      };
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
 
-      // Replace with your EmailJS credentials
-      const serviceId = 'service_ua75qhi';
-      const templateId = 'template_gkuczmq';
-      const publicKey = '1u0kFsxB_HqqxxKVO';
-
-      // Send email using EmailJS
-      const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
-
-      if (response.status === 200) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setTimeout(() => setSubmitStatus('idle'), 3000);
-      } else {
-        setSubmitStatus('error');
+      if (!response.ok) {
+        throw new Error("Failed to send email");
       }
+
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      setTimeout(() => setSubmitStatus("idle"), 3500);
     } catch (error) {
-      console.error('Email sending failed:', error);
-      setSubmitStatus('error');
+      console.error("Email sending failed:", error);
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail size={20} />,
-      label: 'Email',
-      value: 'maniamarthi@gmail.com',
-      href: 'mailto:maniamarthi@gmail.com'
-    },
-    {
-      icon: <Phone size={20} />,
-      label: 'Phone',
-      value: '+91 9502728137',
-      href: 'tel:+919502728137'
-    },
-    {
-      icon: <MapPin size={20} />,
-      label: 'Location',
-      value: 'East Godavari, Andhra Pradesh',
-      href: null
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: <Linkedin size={24} />,
-      label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/manikrishna-amarthi-001427217/',
-      color: '#0077B5'
-    },
-    {
-      icon: <Github size={24} />,
-      label: 'GitHub',
-      href: 'https://github.com/manikrishnaamarthi',
-      color: '#333'
-    },
-    {
-      icon: <Mail size={24} />,
-      label: 'Email',
-      href: 'mailto:maniamarthi@gmail.com',
-      color: '#EA4335'
-    }
-  ];
-
   return (
-    <section id="contact" className="contact">
-      <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">
-            Let's discuss your next project or collaboration opportunity
-          </p>
-        </div>
-
-        <div className="contact-content">
-          <div className="contact-info">
-            <div className="contact-intro">
-              <h3 className="intro-title">Let's Connect</h3>
-              <p className="intro-text">
-                I'm always open to discussing new opportunities, innovative projects, 
-                or collaborations in FinTech, Blockchain, and AI development.
-              </p>
-            </div>
-
-            <div className="contact-details">
-              {contactInfo.map((item, index) => (
-                <div key={index} className="contact-item">
-                  <div className="contact-icon">
-                    {item.icon}
-                  </div>
-                  <div className="contact-text">
-                    <span className="contact-label">{item.label}</span>
-                    {item.href ? (
-                      <a href={item.href} className="contact-value">
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span className="contact-value">{item.value}</span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="social-links">
-              <h4 className="social-title">Follow Me</h4>
-              <div className="social-icons">
-                {socialLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.href}
-                    className="social-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ '--social-color': link.color } as React.CSSProperties}
-                  >
-                    {link.icon}
-                    <span className="social-label">{link.label}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
+    <section
+      id="contact"
+      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
+    >
+      {submitStatus === "success" ? (
+        <div
+          aria-live="polite"
+          className="fixed left-4 right-4 top-5 z-[90] rounded-2xl border border-emerald-400/20 bg-emerald-500/15 px-4 py-3 text-sm text-emerald-100 backdrop-blur-xl shadow-[0_20px_60px_-30px_rgba(16,185,129,0.75)] sm:left-auto sm:right-5 sm:max-w-sm"
+        >
+          <div className="flex items-start gap-3">
+            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
+            <p>Message sent successfully. I&apos;ll get back to you soon.</p>
           </div>
+        </div>
+      ) : null}
 
-          <div className="contact-form-container">
-            <form onSubmit={handleSubmit} className="contact-form">
-              <div className="form-group">
-                <label htmlFor="name" className="form-label">Your Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="form-input"
-                  placeholder="Enter your full name"
-                />
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
+          <Reveal variant="left">
+            <div className="rounded-xl sm:rounded-2xl lg:rounded-[2rem] border border-white/10 bg-white/5 p-5 sm:p-7 md:p-8 backdrop-blur-2xl">
+              <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
+                Get In Touch
+              </p>
+              <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
+                Let&apos;s build something{" "}
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
+                  worth shipping
+                </span>
+                .
+              </h2>
+              <p className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg leading-7 sm:leading-8 text-slate-300">
+                I&apos;m open to meaningful product work, full-stack collaborations,
+                and opportunities where strong engineering and thoughtful delivery
+                both matter.
+              </p>
+
+              <div className="mt-6 sm:mt-8 grid gap-3 sm:gap-4">
+                {contactInfo.map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={item.label}
+                      className="flex items-start gap-3 sm:gap-4 rounded-lg sm:rounded-xl md:rounded-[1.5rem] border border-white/10 bg-black/25 p-4 sm:p-5"
+                    >
+                      <div className="inline-flex h-10 sm:h-12 w-10 sm:w-12 shrink-0 items-center justify-center rounded-lg sm:rounded-2xl border border-white/10 bg-white/5 text-sky-300">
+                        <Icon className="h-4 sm:h-5 w-4 sm:w-5" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-medium uppercase tracking-[0.24em] text-slate-500">
+                          {item.label}
+                        </p>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            className="mt-1 sm:mt-2 block text-sm sm:text-base text-slate-200 transition-colors duration-300 hover:text-white"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <p className="mt-1 sm:mt-2 text-sm sm:text-base text-slate-200">{item.value}</p>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
-              <div className="form-group">
-                <label htmlFor="email" className="form-label">Email Address</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="form-input"
-                  placeholder="Enter your email address"
-                />
+              <div className="mt-6 sm:mt-8">
+                <p className="text-xs font-medium uppercase tracking-[0.24em] text-slate-500">
+                  Find Me Online
+                </p>
+                <div className="mt-3 sm:mt-4 flex flex-wrap gap-2 sm:gap-3">
+                  {socialLinks.map((link) => {
+                    const Icon = link.icon;
+
+                    return (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 sm:gap-3 rounded-full border border-white/10 bg-white/5 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:text-white"
+                      >
+                        <Icon className="h-4 w-4" />
+                        <span className="hidden sm:inline">{link.label}</span>
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
 
-              <div className="form-group">
-                <label htmlFor="subject" className="form-label">Subject</label>
-                <input
-                  type="text"
+              <a
+                href="/Amarthi_Manikrishna_Final_Resume_compressed.pdf"
+                download="Amarthi_Manikrishna_Resume.pdf"
+                className="mt-6 sm:mt-8 inline-flex items-center gap-2 rounded-full bg-white px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-1 hover:bg-slate-200 w-full sm:w-auto justify-center sm:justify-start"
+              >
+                Download Resume
+              </a>
+            </div>
+          </Reveal>
+
+          <Reveal variant="right" delay={120}>
+            <div className="rounded-xl sm:rounded-2xl lg:rounded-[2rem] border border-white/10 bg-white/5 p-5 sm:p-7 md:p-8 backdrop-blur-2xl">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                <div className="grid gap-3 sm:gap-5 grid-cols-1 sm:grid-cols-2">
+                  <Field
+                    id="name"
+                    label="Your Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Enter your full name"
+                  />
+                  <Field
+                    id="email"
+                    label="Email Address"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Enter your email address"
+                  />
+                </div>
+
+                <Field
                   id="subject"
-                  name="subject"
+                  label="Subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  required
-                  className="form-input"
                   placeholder="What's this about?"
                 />
-              </div>
 
-              <div className="form-group">
-                <label htmlFor="message" className="form-label">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={5}
-                  className="form-textarea"
-                  placeholder="Tell me about your project or inquiry..."
-                ></textarea>
-              </div>
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="mb-2 block text-xs sm:text-sm font-medium text-slate-400"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={5}
+                    required
+                    placeholder="Tell me about your project or opportunity..."
+                    className="w-full rounded-lg sm:rounded-xl md:rounded-[1.5rem] border border-white/10 bg-black/25 px-3 sm:px-4 py-3 sm:py-4 text-sm sm:text-base text-white outline-none transition-colors duration-300 placeholder:text-slate-500 focus:border-sky-400/40 focus:bg-black/35"
+                  />
+                </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`submit-btn ${isSubmitting ? 'submitting' : ''} ${submitStatus === 'success' ? 'success' : ''}`}
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="loading-spinner"></div>
-                    Sending...
-                  </>
-                ) : submitStatus === 'success' ? (
-                  <>
-                    ✓ Message Sent!
-                  </>
-                ) : (
-                  <>
-                    <Send size={18} />
-                    Send Message
-                  </>
-                )}
-              </button>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                    submitStatus === "success"
+                      ? "bg-emerald-500 text-white"
+                      : "bg-linear-to-r from-sky-500 to-violet-500 text-white hover:-translate-y-1 hover:opacity-95"
+                  } disabled:cursor-not-allowed disabled:opacity-70`}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                      Sending...
+                    </>
+                  ) : submitStatus === "success" ? (
+                    "Message Sent!"
+                  ) : (
+                    <>
+                      <Send className="h-4 w-4" />
+                      <span className="hidden sm:inline">Send Message</span>
+                      <span className="sm:hidden">Send</span>
+                    </>
+                  )}
+                </button>
 
-              {submitStatus === 'success' && (
-                <p className="success-message">
-                  Thank you for your message! I'll get back to you soon.
-                </p>
-              )}
-              {submitStatus === 'error' && (
-                <p className="error-message">
-                  Failed to send message. Please try again later.
-                </p>
-              )}
-            </form>
-          </div>
+                <div aria-live="polite" className="min-h-6 text-sm">
+                  {submitStatus === "success" ? (
+                    <p className="text-emerald-300">
+                      Thank you for your message. I&apos;ll get back to you soon.
+                    </p>
+                  ) : null}
+                  {submitStatus === "error" ? (
+                    <p className="text-rose-300">
+                      Failed to send message. Please try again later.
+                    </p>
+                  ) : null}
+                </div>
+              </form>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
   );
+}
+
+type FieldProps = {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder: string;
+  type?: string;
 };
 
-export default Contact;
+function Field({
+  id,
+  label,
+  value,
+  onChange,
+  placeholder,
+  type = "text",
+}: FieldProps) {
+  return (
+    <div>
+      <label htmlFor={id} className="mb-2 block text-sm font-medium text-slate-400">
+        {label}
+      </label>
+      <input
+        id={id}
+        name={id}
+        type={type}
+        value={value}
+        onChange={onChange}
+        required
+        placeholder={placeholder}
+        className="w-full rounded-[1.5rem] border border-white/10 bg-black/25 px-4 py-4 text-white outline-none transition-colors duration-300 placeholder:text-slate-500 focus:border-sky-400/40 focus:bg-black/35"
+      />
+    </div>
+  );
+}
