@@ -78,30 +78,29 @@ export default function Achievements() {
   return (
     <section
       id="achievements"
-      className="relative scroll-mt-24 overflow-hidden px-4 py-24 sm:px-6 lg:px-12"
+      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
     >
-      <div className="absolute right-[-8%] top-24 h-80 w-80 rounded-full bg-violet-500/10 blur-[120px]" />
-      <div className="absolute left-[-8%] bottom-8 h-72 w-72 rounded-full bg-sky-500/10 blur-[120px]" />
+
 
       <div className="relative mx-auto max-w-7xl">
         <Reveal variant="up" className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
+          <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
             Achievements
           </p>
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
             Signals of delivery, ownership, and{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
               product growth
             </span>
             .
           </h2>
-          <p className="mt-6 text-base leading-8 text-slate-400 sm:text-lg">
+          <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg leading-7 sm:leading-8 text-slate-400">
             Outcomes that reflect execution quality across engineering, design,
             cloud delivery, AI integrations, and team responsibility.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-12 sm:mt-14 grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {achievements.map((achievement, index) => {
             const Icon = achievement.icon;
 
@@ -112,17 +111,17 @@ export default function Achievements() {
                 delay={index * 70}
                 className="h-full"
               >
-                <article className="flex h-full flex-col rounded-[1.9rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.08]">
-                  <div className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-2xl border border-white/10 bg-black/25 text-sky-300">
-                    <Icon className="h-5 w-5" />
+                <article className="flex h-full flex-col rounded-lg sm:rounded-xl md:rounded-[1.9rem] border border-white/10 bg-white/5 p-4 sm:p-5 md:p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.08]">
+                  <div className="inline-flex h-10 sm:h-12 md:h-[52px] w-10 sm:w-12 md:w-[52px] items-center justify-center rounded-lg sm:rounded-xl md:rounded-2xl border border-white/10 bg-black/25 text-sky-300">
+                    <Icon className="h-4 sm:h-5 w-4 sm:w-5" />
                   </div>
-                  <span className="mt-5 text-xs font-medium uppercase tracking-[0.24em] text-violet-300">
+                  <span className="mt-3 sm:mt-4 md:mt-5 text-xs font-medium uppercase tracking-[0.24em] text-violet-300">
                     {achievement.category}
                   </span>
-                  <h3 className="mt-3 text-xl font-semibold text-white">
+                  <h3 className="mt-2 sm:mt-3 md:mt-3 text-base sm:text-lg md:text-xl font-semibold text-white">
                     {achievement.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-400">
+                  <p className="mt-3 sm:mt-4 md:mt-4 text-xs sm:text-sm md:text-base leading-6 sm:leading-7 text-slate-400">
                     {achievement.description}
                   </p>
                 </article>

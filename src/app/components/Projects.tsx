@@ -2,13 +2,15 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  ArrowLeft,
   DollarSign,
   HandCoins,
   Shield,
   Smartphone,
+  X,
   type LucideIcon,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Reveal from "./Reveal";
 
 type Project = {
@@ -193,38 +195,59 @@ const projects: Project[] = [
 
 export default function Projects() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const closeProjectModal = () => setSelectedProjectId(null);
 
   const selectedProject =
     projects.find((project) => project.id === selectedProjectId) ?? null;
   const SelectedProjectIcon = selectedProject?.icon;
 
+  useEffect(() => {
+    if (!selectedProjectId) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeProjectModal();
+      }
+    };
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedProjectId]);
+
   return (
     <section
       id="projects"
-      className="relative scroll-mt-24 overflow-hidden px-4 py-24 sm:px-6 lg:px-12"
+      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
     >
-      <div className="absolute right-[-10%] top-0 h-[28rem] w-[28rem] rounded-full bg-violet-500/10 blur-[140px]" />
-      <div className="absolute bottom-0 left-[-8%] h-[26rem] w-[26rem] rounded-full bg-sky-500/10 blur-[140px]" />
+
 
       <div className="relative mx-auto max-w-7xl">
         <Reveal variant="up" className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
+          <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
             Selected Works
           </p>
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
             Product-focused builds with{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
               depth, scale, and delivery
             </span>
             .
           </h2>
-          <p className="mt-6 text-base leading-8 text-slate-400 sm:text-lg">
+          <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg leading-7 sm:leading-8 text-slate-400">
             Mobile, blockchain, fintech, and platform work shaped by real-world
             product constraints rather than demo-only engineering.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid auto-rows-[minmax(280px,auto)] gap-6 md:grid-cols-3">
+        <div className="mt-12 sm:mt-14 grid auto-rows-[minmax(240px,auto)] sm:auto-rows-[minmax(280px,auto)] gap-3 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => {
             const Icon = project.icon;
 
@@ -241,44 +264,40 @@ export default function Projects() {
                   onClick={() => setSelectedProjectId(project.id)}
                   whileHover={{ y: -6, scale: 1.01 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
-                  className="group relative flex h-full w-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 text-left backdrop-blur-2xl sm:p-8"
+                  className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-lg sm:rounded-xl lg:rounded-[2rem] border border-white/10 bg-white/5 p-4 sm:p-6 md:p-8 text-left backdrop-blur-2xl"
                   style={{
                     boxShadow: `0 30px 120px -70px rgba(${project.accent}, 0.7)`,
-                    backgroundImage: `radial-gradient(circle at top right, rgba(${project.accent}, 0.28), transparent 42%), radial-gradient(circle at bottom left, rgba(${project.accent}, 0.16), transparent 32%)`,
                   }}
                 >
                   <div className="absolute inset-0 bg-linear-to-b from-white/[0.05] via-transparent to-black/15" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08),transparent_50%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                  <div className="relative flex h-full flex-col justify-between gap-8">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex flex-wrap gap-3">
-                        <span className="rounded-full border border-white/10 bg-black/[0.35] px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-sky-300">
+
+                  <div className="relative flex h-full flex-col justify-between gap-6 sm:gap-8">
+                    <div className="flex items-start justify-between gap-3 sm:gap-4">
+                      <div className="flex flex-wrap gap-2 sm:gap-3">
+                        <span className="rounded-full border border-white/10 bg-black/[0.35] px-2 sm:px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-sky-300">
                           {project.category}
                         </span>
-                        {/* <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
-                          {project.status}
-                        </span> */}
                       </div>
 
-                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-black/25 text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                        <Icon className="h-5 w-5" />
+                      <div className="inline-flex h-10 sm:h-12 w-10 sm:w-12 shrink-0 items-center justify-center rounded-lg sm:rounded-2xl border border-white/10 bg-black/25 text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                        <Icon className="h-4 sm:h-5 w-4 sm:w-5" />
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="text-2xl font-semibold text-white sm:text-3xl">
+                      <h3 className="text-lg sm:text-2xl md:text-3xl font-semibold text-white">
                         {project.title}
                       </h3>
-                      <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+                      <p className="mt-2 sm:mt-4 max-w-2xl text-xs sm:text-sm md:text-base leading-6 sm:leading-7 text-slate-300">
                         {project.description}
                       </p>
 
-                      <div className="mt-5 flex flex-wrap gap-2">
+                      <div className="mt-3 sm:mt-5 flex flex-wrap gap-2">
                         {project.technologies.slice(0, 4).map((technology) => (
                           <span
                             key={technology}
-                            className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs uppercase tracking-[0.2em] text-slate-300"
+                            className="rounded-full border border-white/10 bg-black/30 px-2 sm:px-3 py-1 text-xs uppercase tracking-[0.2em] text-slate-300"
                           >
                             {technology}
                           </span>
@@ -286,9 +305,9 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between text-sm text-slate-300">
-                      <span>Built for real-world product delivery</span>
-                      <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-white">
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm text-slate-300">
+                      {/* <span>Built for real-world product delivery</span> */}
+                      <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2 sm:px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-white">
                         Explore
                       </span>
                     </div>
@@ -307,103 +326,121 @@ export default function Projects() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedProjectId(null)}
-              className="fixed inset-0 z-[70] bg-black/80 backdrop-blur-xl"
+              onClick={closeProjectModal}
+              className="fixed inset-0 z-[70] cursor-pointer bg-black/80 backdrop-blur-xl"
             />
 
-            <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 sm:p-6">
+            <div className="fixed inset-0 z-[80] flex items-stretch justify-center p-0 sm:items-center sm:p-4 md:p-6">
               <motion.div
                 layoutId={`project-${selectedProject.id}`}
                 onClick={(event) => event.stopPropagation()}
-                className="w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-[#101010] shadow-[0_40px_140px_-50px_rgba(0,0,0,0.95)]"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby={`project-title-${selectedProject.id}`}
+                className="relative flex h-full w-full max-w-5xl flex-col overflow-hidden overscroll-contain bg-[#101010] shadow-[0_40px_140px_-50px_rgba(0,0,0,0.95)] sm:h-auto sm:max-h-[calc(100vh-2rem)] sm:rounded-xl sm:border sm:border-white/10 lg:rounded-[2rem]"
               >
-                <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-                  <div
-                    className="relative overflow-hidden p-8 sm:p-10"
-                    style={{
-                      backgroundImage: `radial-gradient(circle at top right, rgba(${selectedProject.accent}, 0.38), transparent 42%), radial-gradient(circle at bottom left, rgba(${selectedProject.accent}, 0.22), transparent 34%), linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.1))`,
-                    }}
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setSelectedProjectId(null)}
-                      className="absolute right-5 top-5 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/30 text-slate-200 transition-colors duration-300 hover:bg-black/50"
-                      aria-label="Close project details"
-                    >
-                      X
-                    </button>
-
-                    <div className="relative flex h-full min-h-[280px] flex-col justify-between">
-                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-[1.5rem] border border-white/10 bg-black/30 text-white">
-                        {SelectedProjectIcon ? (
-                          <SelectedProjectIcon className="h-7 w-7" />
-                        ) : null}
-                      </div>
-
-                      <div>
-                        <span className="inline-flex rounded-full border border-white/10 bg-black/[0.35] px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-sky-300">
-                          {selectedProject.category}
-                        </span>
-                        <h3 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                          {selectedProject.title}
-                        </h3>
-                        <p className="mt-4 text-sm font-medium uppercase tracking-[0.22em] text-slate-300">
-                          {selectedProject.status}
-                        </p>
-                      </div>
-                    </div>
+                <div className="flex items-center justify-between border-b border-white/10 bg-[#101010]/95 px-4 py-3 backdrop-blur-xl sm:px-5">
+                  <div>
+                    <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-500">
+                      Project Details
+                    </p>
+                    <p className="mt-1 text-sm text-slate-200 sm:hidden">
+                      {selectedProject.category}
+                    </p>
                   </div>
 
-                  <div className="max-h-[90vh] overflow-y-auto p-8 sm:p-10">
-                    <div className="space-y-8">
-                      <div>
-                        <p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-300">
-                          Project Overview
-                        </p>
-                        <p className="mt-4 text-base leading-8 text-slate-300">
-                          {selectedProject.longDescription}
-                        </p>
-                      </div>
+                  <button
+                    type="button"
+                    onClick={closeProjectModal}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-white/10"
+                    aria-label="Close project details"
+                  >
+                    <ArrowLeft className="h-4 w-4 sm:hidden" />
+                    <span className="sm:hidden">Back</span>
+                    <span className="hidden sm:inline">Close</span>
+                    <X className="hidden h-4 w-4 sm:block" />
+                  </button>
+                </div>
 
-                      <div>
-                        <p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-300">
-                          Key Features
-                        </p>
-                        <div className="mt-4 grid gap-3">
-                          {selectedProject.features.map((feature) => (
-                            <div
-                              key={feature}
-                              className="flex items-start gap-3 rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-3"
-                            >
-                              <span className="mt-2 h-2 w-2 rounded-full bg-sky-300 shadow-[0_0_10px_rgba(125,211,252,0.8)]" />
-                              <span className="text-sm leading-7 text-slate-300">
-                                {feature}
+                <div className="flex-1 overflow-y-auto">
+                  <div className="lg:grid lg:grid-cols-[0.9fr_1.1fr]">
+                    <div className="relative overflow-hidden p-5 sm:p-8 lg:p-10">
+                      <div className="relative space-y-6 sm:space-y-8">
+                        <div className="inline-flex h-12 sm:h-16 w-12 sm:w-16 items-center justify-center rounded-lg sm:rounded-[1.5rem] border border-white/10 bg-black/30 text-white">
+                          {SelectedProjectIcon ? (
+                            <SelectedProjectIcon className="h-5 sm:h-7 w-5 sm:w-7" />
+                          ) : null}
+                        </div>
+
+                        <div>
+                          <span className="inline-flex rounded-full border border-white/10 bg-black/[0.35] px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-sky-300">
+                            {selectedProject.category}
+                          </span>
+                          <h3
+                            id={`project-title-${selectedProject.id}`}
+                            className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white"
+                          >
+                            {selectedProject.title}
+                          </h3>
+                          {selectedProject.status ? (
+                            <p className="mt-2 sm:mt-4 text-xs sm:text-sm font-medium uppercase tracking-[0.22em] text-slate-300">
+                              {selectedProject.status}
+                            </p>
+                          ) : null}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-5 pt-0 sm:p-7 sm:pt-0 md:p-8 md:pt-0 lg:p-10 lg:pt-10">
+                      <div className="space-y-6 sm:space-y-8">
+                        <div>
+                          <p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-300">
+                            Project Overview
+                          </p>
+                          <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base leading-6 sm:leading-8 text-slate-300">
+                            {selectedProject.longDescription}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-300">
+                            Key Features
+                          </p>
+                          <div className="mt-3 sm:mt-4 grid gap-2 sm:gap-3">
+                            {selectedProject.features.map((feature) => (
+                              <div
+                                key={feature}
+                                className="flex items-start gap-2 sm:gap-3 rounded-lg sm:rounded-[1.25rem] border border-white/10 bg-white/5 px-3 sm:px-4 py-2 sm:py-3"
+                              >
+                                <span className="mt-1 sm:mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-300 shadow-[0_0_10px_rgba(125,211,252,0.8)]" />
+                                <span className="text-xs sm:text-sm leading-6 sm:leading-7 text-slate-300">
+                                  {feature}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-300">
+                            Technology Stack
+                          </p>
+                          <div className="mt-3 sm:mt-4 flex flex-wrap gap-2 sm:gap-3">
+                            {selectedProject.technologies.map((technology) => (
+                              <span
+                                key={technology}
+                                className="rounded-full border border-white/10 bg-black/25 px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm text-slate-300"
+                              >
+                                {technology}
                               </span>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
-                      </div>
 
-                      <div>
-                        <p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-300">
-                          Technology Stack
-                        </p>
-                        <div className="mt-4 flex flex-wrap gap-3">
-                          {selectedProject.technologies.map((technology) => (
-                            <span
-                              key={technology}
-                              className="rounded-full border border-white/10 bg-black/25 px-4 py-2 text-sm text-slate-300"
-                            >
-                              {technology}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row">
+                        {/* <div className="flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row">
                         <a
                           href="#contact"
-                          onClick={() => setSelectedProjectId(null)}
+                          onClick={closeProjectModal}
                           className="inline-flex flex-1 items-center justify-center rounded-full bg-white px-6 py-4 text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-1 hover:bg-slate-200"
                         >
                           Discuss a Similar Build
@@ -415,6 +452,7 @@ export default function Projects() {
                         >
                           View Resume
                         </a>
+                      </div> */}
                       </div>
                     </div>
                   </div>

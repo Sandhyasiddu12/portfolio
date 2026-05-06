@@ -1,7 +1,15 @@
 "use client";
 
-import emailjs from "@emailjs/browser";
-import { Github, Linkedin, Mail, MapPin, Phone, Send, type LucideIcon } from "lucide-react";
+import {
+  CheckCircle2,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  type LucideIcon,
+} from "lucide-react";
 import { useState } from "react";
 import Reveal from "./Reveal";
 
@@ -77,21 +85,21 @@ export default function Contact() {
     setSubmitStatus("idle");
 
     try {
-      const response = await emailjs.send(
-        "service_ua75qhi",
-        "template_gkuczmq",
-        {
-          from_name: formData.name,
-          from_email: formData.email,
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: "maniamarthi@gmail.com",
-        },
-        "1u0kFsxB_HqqxxKVO"
-      );
+        }),
+      });
 
-      if (response.status !== 200) {
-        throw new Error("Email delivery failed");
+      if (!response.ok) {
+        throw new Error("Failed to send email");
       }
 
       setSubmitStatus("success");
@@ -113,42 +121,51 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-24 overflow-hidden px-4 py-24 sm:px-6 lg:px-12"
+      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
     >
-      <div className="absolute right-[-8%] top-0 h-80 w-80 rounded-full bg-violet-500/10 blur-[120px]" />
-      <div className="absolute left-[-6%] bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-[120px]" />
+      {submitStatus === "success" ? (
+        <div
+          aria-live="polite"
+          className="fixed left-4 right-4 top-5 z-[90] rounded-2xl border border-emerald-400/20 bg-emerald-500/15 px-4 py-3 text-sm text-emerald-100 backdrop-blur-xl shadow-[0_20px_60px_-30px_rgba(16,185,129,0.75)] sm:left-auto sm:right-5 sm:max-w-sm"
+        >
+          <div className="flex items-start gap-3">
+            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
+            <p>Message sent successfully. I&apos;ll get back to you soon.</p>
+          </div>
+        </div>
+      ) : null}
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
           <Reveal variant="left">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-7 backdrop-blur-2xl sm:p-8">
-              <p className="text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
+            <div className="rounded-xl sm:rounded-2xl lg:rounded-[2rem] border border-white/10 bg-white/5 p-5 sm:p-7 md:p-8 backdrop-blur-2xl">
+              <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
                 Get In Touch
               </p>
-              <h2 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
                 Let&apos;s build something{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
                   worth shipping
                 </span>
                 .
               </h2>
-              <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
+              <p className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg leading-7 sm:leading-8 text-slate-300">
                 I&apos;m open to meaningful product work, full-stack collaborations,
                 and opportunities where strong engineering and thoughtful delivery
                 both matter.
               </p>
 
-              <div className="mt-8 grid gap-4">
+              <div className="mt-6 sm:mt-8 grid gap-3 sm:gap-4">
                 {contactInfo.map((item) => {
                   const Icon = item.icon;
 
                   return (
                     <div
                       key={item.label}
-                      className="flex items-start gap-4 rounded-[1.5rem] border border-white/10 bg-black/25 p-5"
+                      className="flex items-start gap-3 sm:gap-4 rounded-lg sm:rounded-xl md:rounded-[1.5rem] border border-white/10 bg-black/25 p-4 sm:p-5"
                     >
-                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sky-300">
-                        <Icon className="h-5 w-5" />
+                      <div className="inline-flex h-10 sm:h-12 w-10 sm:w-12 shrink-0 items-center justify-center rounded-lg sm:rounded-2xl border border-white/10 bg-white/5 text-sky-300">
+                        <Icon className="h-4 sm:h-5 w-4 sm:w-5" />
                       </div>
                       <div>
                         <p className="text-xs font-medium uppercase tracking-[0.24em] text-slate-500">
@@ -157,12 +174,12 @@ export default function Contact() {
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="mt-2 block text-base text-slate-200 transition-colors duration-300 hover:text-white"
+                            className="mt-1 sm:mt-2 block text-sm sm:text-base text-slate-200 transition-colors duration-300 hover:text-white"
                           >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="mt-2 text-base text-slate-200">{item.value}</p>
+                          <p className="mt-1 sm:mt-2 text-sm sm:text-base text-slate-200">{item.value}</p>
                         )}
                       </div>
                     </div>
@@ -170,11 +187,11 @@ export default function Contact() {
                 })}
               </div>
 
-              <div className="mt-8">
+              <div className="mt-6 sm:mt-8">
                 <p className="text-xs font-medium uppercase tracking-[0.24em] text-slate-500">
                   Find Me Online
                 </p>
-                <div className="mt-4 flex flex-wrap gap-3">
+                <div className="mt-3 sm:mt-4 flex flex-wrap gap-2 sm:gap-3">
                   {socialLinks.map((link) => {
                     const Icon = link.icon;
 
@@ -184,10 +201,10 @@ export default function Contact() {
                         href={link.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:text-white"
+                        className="inline-flex items-center gap-2 sm:gap-3 rounded-full border border-white/10 bg-white/5 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:text-white"
                       >
                         <Icon className="h-4 w-4" />
-                        {link.label}
+                        <span className="hidden sm:inline">{link.label}</span>
                       </a>
                     );
                   })}
@@ -197,7 +214,7 @@ export default function Contact() {
               <a
                 href="/Amarthi_Manikrishna_Final_Resume_compressed.pdf"
                 download="Amarthi_Manikrishna_Resume.pdf"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-1 hover:bg-slate-200"
+                className="mt-6 sm:mt-8 inline-flex items-center gap-2 rounded-full bg-white px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-1 hover:bg-slate-200 w-full sm:w-auto justify-center sm:justify-start"
               >
                 Download Resume
               </a>
@@ -205,9 +222,9 @@ export default function Contact() {
           </Reveal>
 
           <Reveal variant="right" delay={120}>
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-7 backdrop-blur-2xl sm:p-8">
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid gap-5 sm:grid-cols-2">
+            <div className="rounded-xl sm:rounded-2xl lg:rounded-[2rem] border border-white/10 bg-white/5 p-5 sm:p-7 md:p-8 backdrop-blur-2xl">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                <div className="grid gap-3 sm:gap-5 grid-cols-1 sm:grid-cols-2">
                   <Field
                     id="name"
                     label="Your Name"
@@ -236,7 +253,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="mb-2 block text-sm font-medium text-slate-400"
+                    className="mb-2 block text-xs sm:text-sm font-medium text-slate-400"
                   >
                     Message
                   </label>
@@ -245,17 +262,17 @@ export default function Contact() {
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    rows={6}
+                    rows={5}
                     required
                     placeholder="Tell me about your project or opportunity..."
-                    className="w-full rounded-[1.5rem] border border-white/10 bg-black/25 px-4 py-4 text-white outline-none transition-colors duration-300 placeholder:text-slate-500 focus:border-sky-400/40 focus:bg-black/35"
+                    className="w-full rounded-lg sm:rounded-xl md:rounded-[1.5rem] border border-white/10 bg-black/25 px-3 sm:px-4 py-3 sm:py-4 text-sm sm:text-base text-white outline-none transition-colors duration-300 placeholder:text-slate-500 focus:border-sky-400/40 focus:bg-black/35"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-semibold transition-all duration-300 ${
+                  className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold transition-all duration-300 ${
                     submitStatus === "success"
                       ? "bg-emerald-500 text-white"
                       : "bg-linear-to-r from-sky-500 to-violet-500 text-white hover:-translate-y-1 hover:opacity-95"
@@ -271,7 +288,8 @@ export default function Contact() {
                   ) : (
                     <>
                       <Send className="h-4 w-4" />
-                      Send Message
+                      <span className="hidden sm:inline">Send Message</span>
+                      <span className="sm:hidden">Send</span>
                     </>
                   )}
                 </button>

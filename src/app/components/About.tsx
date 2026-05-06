@@ -50,96 +50,94 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative scroll-mt-24 overflow-hidden px-4 py-24 sm:px-6 lg:px-12"
+      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
     >
-      <div className="absolute left-[-8%] top-24 h-72 w-72 rounded-full bg-sky-500/10 blur-[120px]" />
-      <div className="absolute right-[-8%] bottom-12 h-72 w-72 rounded-full bg-violet-500/10 blur-[120px]" />
-
       <div className="relative mx-auto max-w-7xl space-y-6">
-        <div className="grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          <Reveal variant="scale">
-            <div className="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-white/5 p-5 backdrop-blur-2xl sm:p-6">
-              <div className="absolute inset-x-10 top-10 h-32 rounded-full bg-sky-400/15 blur-[90px]" />
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/25">
+        <div className="grid gap-6 md:gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-x-10 lg:gap-y-8 lg:items-start">
+          <Reveal variant="scale" className="lg:row-span-2">
+            <div className="relative overflow-hidden rounded-2xl md:rounded-[2.25rem] border border-white/10 bg-white/5 p-4 sm:p-5 md:p-6 backdrop-blur-2xl">
+              <div className="relative overflow-hidden rounded-xl md:rounded-[1.75rem] border border-white/10 bg-black/25">
                 <img
-                  src="/mine.png"
+                  src="/mine2.jpeg"
                   alt="Amarthi Manikrishna portrait"
-                  className="h-[420px] w-full object-cover object-top sm:h-[480px] lg:h-[520px]"
+                  className="h-64 sm:h-80 md:h-[420px] lg:h-[450px] w-full object-cover object-top"
                 />
               </div>
             </div>
           </Reveal>
 
-          <div className="space-y-6">
+          <div className="space-y-6 lg:pt-4">
             <Reveal variant="up">
               <div className="max-w-3xl">
-                <p className="text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
+                <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
                   About Me
                 </p>
-                <h2 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white">
                   Engineering ideas into{" "}
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
                     polished, production-ready
                   </span>{" "}
-                  experiences.
+                  experiences
                 </h2>
-              </div>
-            </Reveal>
-
-            <Reveal variant="right" delay={120}>
-              <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-2xl sm:p-7">
-                <h3 className="text-2xl font-semibold text-white">
-                  Builder, collaborator, and delivery-focused teammate.
+                <h3 className="mt-5 sm:mt-6 text-xl sm:text-2xl font-semibold text-white">
+                  Designing systems that scale, perform, and deliver in production.
                 </h3>
-                <p className="mt-5 text-base leading-8 text-slate-300">
+                <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-7 sm:leading-8 text-slate-300">
                   I&apos;m a product-focused technical architect with hands-on
                   experience building scalable fintech, B2B, and real-time
                   platforms. My work sits at the intersection of product and
                   engineering, translating business requirements into reliable,
                   scalable systems.
                 </p>
-                <p className="mt-4 text-base leading-8 text-slate-400">
-                  I&apos;m involved across the full lifecycle, from defining
-                  system architecture and workflows to implementation,
-                  deployment, and production readiness. My approach emphasizes
-                  clean architecture, practical design decisions, and alignment
-                  with real business needs.
-                </p>
-                <p className="mt-4 text-base leading-8 text-slate-400">
-                  I&apos;ve worked on payments, financial data systems,
-                  transaction processing, booking and availability platforms,
-                  and cross-border flows, with a strong focus on accuracy,
-                  traceability, system reliability, and end-to-end ownership.
-                </p>
-                <p className="mt-4 text-base leading-8 text-slate-400">
-                  On the technical side, I work with FastAPI, Django,
-                  PostgreSQL, CockroachDB, Redis, React, Next.js, and React
-                  Native for Android and iOS. I&apos;ve also explored
-                  blockchain-based systems with Sui and Stellar, including
-                  wallet interactions, token transfers, and secure transaction
-                  models.
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {focusAreas.map((area) => (
-                    <span
-                      key={area}
-                      className="rounded-full border border-white/10 bg-black/25 px-4 py-2 text-sm text-slate-300"
-                    >
-                      {area}
-                    </span>
-                  ))}
-                </div>
-
-                <a
-                  href="#journey"
-                  className="mt-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
-                >
-                  See My Journey
-                </a>
               </div>
             </Reveal>
           </div>
+
+          <Reveal variant="right" delay={120} className="lg:col-span-2">
+            <div className="border-t border-white/10 pt-6 sm:pt-8 lg:pt-10">
+              <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(260px,320px)] xl:gap-10">
+                <div className="space-y-4 sm:space-y-5">
+                  <p className="text-sm sm:text-base leading-7 sm:leading-8 text-slate-400">
+                    My focus is on translating business requirements into reliable systems—covering architecture, workflows, and production-ready execution. I work across the full lifecycle, from system design and implementation to deployment and operational readiness.
+                  </p>
+                  <p className="text-sm sm:text-base leading-7 sm:leading-8 text-slate-400">
+                    I’ve built and contributed to platforms involving payments, financial data systems, transaction processing, booking and availability systems, and cross-border flows—where accuracy, traceability, and reliability are critical.
+                  </p>
+                  <p className="text-sm sm:text-base leading-7 sm:leading-8 text-slate-400">
+                    On the technical side, I work with FastAPI, Django, PostgreSQL, CockroachDB, Redis, React, Next.js, and React Native (Android & iOS). I’ve also worked with blockchain systems including Sui and Stellar, building wallet flows, token transfers, and secure transaction models.
+                  </p>
+                  <p className="text-sm sm:text-base leading-7 sm:leading-8 text-slate-400">
+                    I care about building systems that are practical, scalable, and aligned with real-world use cases—not just technically sound, but production-ready.
+                  </p>
+                </div>
+
+                <div className="space-y-5 xl:border-l xl:border-white/10 xl:pl-8">
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-300">
+                      Focus Areas
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {focusAreas.map((area) => (
+                        <span
+                          key={area}
+                          className="rounded-full border border-white/10 bg-black/25 px-4 py-2 text-sm text-slate-300"
+                        >
+                          {area}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <a
+                    href="#journey"
+                    className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
+                  >
+                    See My Journey
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

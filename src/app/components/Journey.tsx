@@ -42,34 +42,33 @@ export default function Journey() {
   return (
     <section
       id="journey"
-      className="relative scroll-mt-24 overflow-hidden px-4 py-24 sm:px-6 lg:px-12"
+      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
     >
-      <div className="absolute left-[-10%] top-12 h-80 w-80 rounded-full bg-sky-500/10 blur-[120px]" />
-      <div className="absolute right-[8%] bottom-0 h-72 w-72 rounded-full bg-violet-500/10 blur-[120px]" />
+
 
       <div className="relative mx-auto max-w-7xl">
         <Reveal variant="up" className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
+          <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
             My Journey
           </p>
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
             From foundations to{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
               fintech platform work
             </span>
             .
           </h2>
-          <p className="mt-6 text-base leading-8 text-slate-400 sm:text-lg">
+          <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg leading-7 sm:leading-8 text-slate-400">
             A quick view of the path from engineering foundations to building
             modern product systems across financial infrastructure and trust-led
             workflows.
           </p>
         </Reveal>
 
-        <div className="relative mx-auto mt-16 max-w-5xl">
-          <div className="absolute left-5 top-0 bottom-0 w-px bg-linear-to-b from-sky-500/20 via-violet-400/60 to-sky-500/20 md:left-1/2 md:-translate-x-1/2" />
+        <div className="relative mx-auto mt-12 sm:mt-16 max-w-5xl">
+          <div className="absolute left-4 sm:left-5 md:left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-sky-500/20 via-violet-400/60 to-sky-500/20 md:-translate-x-1/2" />
 
-          <div className="space-y-10">
+          <div className="space-y-8 sm:space-y-10">
             {journeyItems.map((item, index) => {
               const alignRight = index % 2 !== 0;
 
@@ -87,25 +86,25 @@ export default function Journey() {
                     <div className="hidden md:block md:w-1/2" />
 
                     <div className="absolute left-5 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-[#0a0a0a] bg-sky-400 shadow-[0_0_18px_rgba(56,189,248,0.7)] md:left-1/2">
-                      <div className="absolute inset-0 rounded-full bg-sky-300/80 blur-sm" />
+
                     </div>
 
                     <div
-                      className={`w-full pl-12 md:w-1/2 md:pl-0 ${
+                      className={`w-full pl-12 sm:pl-14 md:w-1/2 md:pl-0 ${
                         alignRight ? "md:pl-14" : "md:pr-14"
                       }`}
                     >
-                      <article className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.08]">
+                      <article className="rounded-xl sm:rounded-2xl md:rounded-[1.75rem] border border-white/10 bg-white/5 p-4 sm:p-5 md:p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.08]">
                         <span className="inline-flex rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-sky-300">
                           {item.year}
                         </span>
-                        <h3 className="mt-4 text-xl font-semibold text-white sm:text-2xl">
+                        <h3 className="mt-3 sm:mt-4 text-lg sm:text-xl md:text-2xl font-semibold text-white">
                           {item.title}
                         </h3>
-                        <p className="mt-2 text-sm font-medium uppercase tracking-[0.22em] text-violet-300">
+                        <p className="mt-2 text-xs sm:text-sm font-medium uppercase tracking-[0.22em] text-violet-300">
                           {item.org}
                         </p>
-                        <p className="mt-4 text-sm leading-7 text-slate-400 sm:text-base">
+                        <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base leading-6 sm:leading-7 text-slate-400">
                           {item.description}
                         </p>
                       </article>

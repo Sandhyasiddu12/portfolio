@@ -53,31 +53,28 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative scroll-mt-24 overflow-hidden px-4 py-24 sm:px-6 lg:px-12"
+      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
     >
-      <div className="absolute right-[-8%] top-10 h-80 w-80 rounded-full bg-violet-500/10 blur-[120px]" />
-      <div className="absolute left-[-6%] bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-[120px]" />
-
       <div className="relative mx-auto max-w-7xl">
         <Reveal variant="up" className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
+          <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
             Technical Arsenal
           </p>
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
             A practical stack for building{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
               full-stack products
             </span>
             .
           </h2>
-          <p className="mt-6 text-base leading-8 text-slate-400 sm:text-lg">
+          <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg leading-7 sm:leading-8 text-slate-400">
             The stack I rely on to build product-focused fintech, B2B, and
             real-time systems across web, mobile, backend infrastructure, and
             blockchain exploration.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-12 sm:mt-14 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {skillCategories.map((category, index) => (
             <Reveal
               key={category.title}

@@ -38,45 +38,45 @@ const personalInfo = [
 
 export default function Education() {
   return (
-    <section className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-12">
+    <section className="relative overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24">
       <div className="relative mx-auto max-w-7xl">
         <Reveal variant="up" className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
+          <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
             Education
           </p>
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white">
             Academic foundations and personal background.
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="grid gap-5">
+        <div className="mt-10 sm:mt-12 grid gap-4 sm:gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid gap-4 sm:gap-5">
             {education.map((item, index) => (
               <Reveal
                 key={item.degree}
                 variant={index % 2 === 0 ? "left" : "right"}
                 delay={index * 80}
               >
-                <div className="rounded-[1.9rem] border border-white/10 bg-white/5 p-6 backdrop-blur-2xl sm:p-7">
-                  <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-                    <div className="flex gap-4">
-                      <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-black/25 text-sky-300">
+                <div className="rounded-lg sm:rounded-xl md:rounded-[1.9rem] border border-white/10 bg-white/5 p-4 sm:p-6 md:p-7 backdrop-blur-2xl">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="flex gap-3 sm:gap-4">
+                      <div className="inline-flex h-10 sm:h-12 w-10 sm:w-12 shrink-0 items-center justify-center rounded-lg sm:rounded-2xl border border-white/10 bg-black/25 text-sky-300">
                         <GraduationCap className="h-5 w-5" />
                       </div>
                       <div>
                         <p className="text-xs font-medium uppercase tracking-[0.24em] text-violet-300">
                           {item.type}
                         </p>
-                        <h3 className="mt-2 text-xl font-semibold text-white">
+                        <h3 className="mt-2 text-base sm:text-xl font-semibold text-white">
                           {item.degree}
                         </h3>
-                        <p className="mt-2 text-sm text-slate-300">{item.institution}</p>
+                        <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-slate-300">{item.institution}</p>
                       </div>
                     </div>
 
-                    <div className="space-y-2 text-sm text-slate-400">
-                      <div className="flex items-center gap-3">
-                        <Calendar className="h-4 w-4 text-sky-300" />
+                    <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-slate-400">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <Calendar className="h-3 sm:h-4 w-3 sm:w-4 text-sky-300" />
                         {item.year}
                       </div>
                       <div className="flex items-center gap-3">

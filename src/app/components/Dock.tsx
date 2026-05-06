@@ -53,7 +53,7 @@ export default function Dock() {
     <motion.div
       onMouseMove={(event) => mouseX.set(event.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="fixed bottom-4 left-1/2 z-50 flex h-[72px] max-w-[calc(100vw-1.5rem)] -translate-x-1/2 items-end gap-2 rounded-[2rem] border border-white/10 bg-black/[0.55] px-3 py-3 backdrop-blur-2xl shadow-[0_30px_120px_-50px_rgba(0,0,0,0.95)] sm:bottom-8 sm:gap-3 sm:px-4"
+      className="fixed bottom-3 sm:bottom-4 md:bottom-8 left-1/2 z-50 flex h-14 sm:h-16 md:h-[72px] max-w-[calc(100vw-1.5rem)] sm:max-w-[calc(100vw-2rem)] -translate-x-1/2 items-end gap-1 sm:gap-2 md:gap-3 rounded-2xl sm:rounded-[2rem] border border-white/10 bg-black/[0.55] px-2 sm:px-3 md:px-4 py-2 sm:py-3 backdrop-blur-2xl shadow-[0_30px_120px_-50px_rgba(0,0,0,0.95)]"
     >
       {dockItems.map((item) => (
         <DockIcon key={item.id} item={item} mouseX={mouseX} />

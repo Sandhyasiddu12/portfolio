@@ -92,16 +92,16 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="mx-auto mt-3 max-w-7xl lg:hidden"
+            className="mx-auto mt-3 max-w-7xl px-4 sm:px-6 lg:hidden"
           >
-            <div className="rounded-[2rem] border border-white/10 bg-black/75 p-4 backdrop-blur-2xl shadow-[0_24px_80px_-40px_rgba(0,0,0,0.95)]">
+            <div className="rounded-xl sm:rounded-2xl lg:rounded-[2rem] border border-white/10 bg-black/75 p-3 sm:p-4 backdrop-blur-2xl shadow-[0_24px_80px_-40px_rgba(0,0,0,0.95)]">
               <div className="grid gap-2">
                 {navItems.map((item) => (
                   <a
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="rounded-2xl border border-transparent px-4 py-3 text-sm text-slate-300 transition-colors duration-300 hover:border-white/10 hover:bg-white/5 hover:text-white"
+                    className="rounded-lg sm:rounded-2xl border border-transparent px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-slate-300 transition-colors duration-300 hover:border-white/10 hover:bg-white/5 hover:text-white"
                   >
                     {item.label}
                   </a>
@@ -110,7 +110,7 @@ export default function Header() {
                   href="/Amarthi_Manikrishna_Final_Resume_compressed.pdf"
                   download="Amarthi_Manikrishna_Resume.pdf"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-black transition-transform duration-300 hover:-translate-y-0.5"
+                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg sm:rounded-2xl bg-white px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-black transition-transform duration-300 hover:-translate-y-0.5"
                 >
                   <FileText className="h-4 w-4" />
                   Download Resume
