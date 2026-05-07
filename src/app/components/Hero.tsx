@@ -19,7 +19,7 @@ export default function Hero() {
     icon: LucideIcon;
   }> = [
     {
-      href: "https://www.linkedin.com/in/manikrishna-amarthi-001427217/",
+      href: "https://www.linkedin.com/in/sandhya-siddu-245804251/",
       label: "LinkedIn",
       icon: Linkedin,
     },
