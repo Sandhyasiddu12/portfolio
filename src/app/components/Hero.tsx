@@ -29,7 +29,7 @@ export default function Hero() {
       icon: Github,
     },
     {
-      href: "mailto:maniamarthi@gmail.com",
+      href: "mailto:sandhyasiddu0405@gmail.com",
       label: "Email",
       icon: Mail,
     },
