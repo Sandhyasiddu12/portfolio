@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowLeft,
+  ArrowUpRight,
   DollarSign,
   HandCoins,
   Shield,
@@ -112,7 +113,7 @@ const projects: Project[] = [
     status: "",
     category: "Mobile App",
     accent: "59, 130, 246",
-    span: "md:col-span-2 md:row-span-2",
+    span: "md:col-span-2 xl:row-span-2",
   },
   {
     id: "blockchain-kyc",
@@ -140,7 +141,7 @@ const projects: Project[] = [
     status: "",
     category: "Blockchain",
     accent: "168, 85, 247",
-    span: "md:col-span-1 md:row-span-2",
+    span: "md:col-span-1 xl:row-span-2",
   },
   {
     id: "stablecoin-payments",
@@ -225,10 +226,8 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
+      className="relative scroll-mt-24 overflow-hidden px-3 py-16 sm:px-6 sm:py-20 md:px-8 lg:px-12"
     >
-
-
       <div className="relative mx-auto max-w-7xl">
         <Reveal variant="up" className="max-w-3xl">
           <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
@@ -247,7 +246,7 @@ export default function Projects() {
           </p>
         </Reveal>
 
-        <div className="mt-12 sm:mt-14 grid auto-rows-[minmax(240px,auto)] sm:auto-rows-[minmax(280px,auto)] gap-3 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 auto-rows-[minmax(220px,auto)] gap-3 sm:mt-14 sm:grid-cols-2 sm:auto-rows-[minmax(250px,auto)] sm:gap-6 lg:grid-cols-3 lg:auto-rows-[minmax(260px,auto)]">
           {projects.map((project, index) => {
             const Icon = project.icon;
 
@@ -262,7 +261,8 @@ export default function Projects() {
                   type="button"
                   layoutId={`project-${project.id}`}
                   onClick={() => setSelectedProjectId(project.id)}
-                  whileHover={{ y: -6, scale: 1.01 }}
+                  whileHover={{ y: -6 }}
+                  whileTap={{ scale: 0.985 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
                   className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-lg sm:rounded-xl lg:rounded-[2rem] border border-white/10 bg-white/5 p-4 sm:p-6 md:p-8 text-left backdrop-blur-2xl"
                   style={{
@@ -271,13 +271,17 @@ export default function Projects() {
                 >
                   <div className="absolute inset-0 bg-linear-to-b from-white/[0.05] via-transparent to-black/15" />
 
-
-                  <div className="relative flex h-full flex-col justify-between gap-6 sm:gap-8">
+                  <div className="relative flex h-full flex-col gap-5 sm:gap-6">
                     <div className="flex items-start justify-between gap-3 sm:gap-4">
-                      <div className="flex flex-wrap gap-2 sm:gap-3">
+                      <div className="flex flex-wrap gap-2">
                         <span className="rounded-full border border-white/10 bg-black/[0.35] px-2 sm:px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-sky-300">
                           {project.category}
                         </span>
+                        {project.status ? (
+                          <span className="rounded-full border border-white/10 bg-white/[0.07] px-2 sm:px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-slate-200">
+                            {project.status}
+                          </span>
+                        ) : null}
                       </div>
 
                       <div className="inline-flex h-10 sm:h-12 w-10 sm:w-12 shrink-0 items-center justify-center rounded-lg sm:rounded-2xl border border-white/10 bg-black/25 text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
@@ -285,15 +289,15 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    <div>
+                    <div className="space-y-4 sm:space-y-5">
                       <h3 className="text-lg sm:text-2xl md:text-3xl font-semibold text-white">
                         {project.title}
                       </h3>
-                      <p className="mt-2 sm:mt-4 max-w-2xl text-xs sm:text-sm md:text-base leading-6 sm:leading-7 text-slate-300">
+                      <p className="max-w-2xl text-xs sm:text-sm md:text-base leading-6 sm:leading-7 text-slate-300">
                         {project.description}
                       </p>
 
-                      <div className="mt-3 sm:mt-5 flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2">
                         {project.technologies.slice(0, 4).map((technology) => (
                           <span
                             key={technology}
@@ -305,11 +309,32 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm text-slate-300">
-                      {/* <span>Built for real-world product delivery</span> */}
-                      <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2 sm:px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-white">
-                        Explore
-                      </span>
+                    <div className="mt-auto border-t border-white/10 pt-4 sm:pt-5">
+                      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-500">
+                        Key focus
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {project.features.slice(0, 2).map((feature) => (
+                          <span
+                            key={feature}
+                            className="rounded-full border border-white/10 bg-black/25 px-3 py-1.5 text-[11px] leading-5 text-slate-300"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="mt-4 flex items-center justify-between gap-3">
+                        <span className="text-[11px] uppercase tracking-[0.2em] text-slate-500">
+                          Open project brief
+                        </span>
+                        <span className="inline-flex w-fit items-center gap-2 self-start rounded-full border border-white/10 bg-white/[0.07] px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-white transition-all duration-300 ease-out group-hover:scale-95 group-hover:bg-white group-hover:text-black">
+                          Explore
+                          <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-black/30 text-sky-300 transition-all duration-300 ease-out group-hover:h-5 group-hover:w-5 group-hover:bg-black/10 group-hover:text-black">
+                            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </motion.button>
@@ -446,7 +471,7 @@ export default function Projects() {
                           Discuss a Similar Build
                         </a>
                         <a
-                          href="/Amarthi_Manikrishna_Final_Resume_compressed.pdf"
+                          href="/Manikrishna_EXP_Resume.pdf"
                           download="Amarthi_Manikrishna_Resume.pdf"
                           className="inline-flex flex-1 items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
                         >

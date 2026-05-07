@@ -41,8 +41,8 @@ const dockItems: DockItem[] = [
     id: "resume",
     icon: FileText,
     label: "Resume",
-    href: "/Amarthi_Manikrishna_Final_Resume_compressed.pdf",
-    download: "Amarthi_Manikrishna_Resume.pdf",
+    href: "/Manikrishna_EXP_Resume.pdf",
+    download: "Manikrishna_EXP_Resume.pdf",
   },
 ];
 

@@ -97,7 +97,7 @@ export default function Hero() {
               <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
                 Full Stack Developer &{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 via-cyan-200 to-violet-300">
-                  Technical Architect
+                  Technical Lead
                 </span>
               </h2>
             </Reveal>
@@ -118,7 +118,7 @@ export default function Hero() {
                   <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
-                  href="/Amarthi_Manikrishna_Final_Resume_compressed.pdf"
+                  href="/Manikrishna_EXP_Resume.pdf"
                   download="Amarthi_Manikrishna_Resume.pdf"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 w-full sm:w-auto"
                 >

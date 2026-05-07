@@ -78,10 +78,8 @@ export default function Achievements() {
   return (
     <section
       id="achievements"
-      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
+      className="relative scroll-mt-24 overflow-hidden px-3 py-16 sm:px-6 sm:py-20 md:px-8 lg:px-12"
     >
-
-
       <div className="relative mx-auto max-w-7xl">
         <Reveal variant="up" className="max-w-3xl">
           <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">

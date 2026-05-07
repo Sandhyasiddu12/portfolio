@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 const journeyItems = [
   {
     year: "Current",
-    title: "FinTech Product and Platform Engineering",
+    title: "Product-focused Full Stack Developer & Technical Lead",
     org: "moneyverse.ai",
     description:
       "Building product and platform systems across digital payments, reusable KYC, blockchain-backed identity, and scalable infrastructure that connects traditional finance with decentralized networks.",
@@ -42,10 +42,8 @@ export default function Journey() {
   return (
     <section
       id="journey"
-      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
+      className="relative scroll-mt-24 overflow-hidden px-3 py-16 sm:px-6 sm:py-20 md:px-8 lg:px-12"
     >
-
-
       <div className="relative mx-auto max-w-7xl">
         <Reveal variant="up" className="mx-auto max-w-3xl text-center">
           <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">

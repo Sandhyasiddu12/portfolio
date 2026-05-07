@@ -121,7 +121,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-24 overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 py-20 sm:py-24"
+      className="relative scroll-mt-24 overflow-hidden px-3 py-16 sm:px-6 sm:py-20 md:px-8 lg:px-12"
     >
       {submitStatus === "success" ? (
         <div
@@ -212,7 +212,7 @@ export default function Contact() {
               </div>
 
               <a
-                href="/Amarthi_Manikrishna_Final_Resume_compressed.pdf"
+                href="/Manikrishna_EXP_Resume.pdf"
                 download="Amarthi_Manikrishna_Resume.pdf"
                 className="mt-6 sm:mt-8 inline-flex items-center gap-2 rounded-full bg-white px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-1 hover:bg-slate-200 w-full sm:w-auto justify-center sm:justify-start"
               >

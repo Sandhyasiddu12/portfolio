@@ -65,7 +65,7 @@ export default function Header() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <a
-              href="/Amarthi_Manikrishna_Final_Resume_compressed.pdf"
+              href="/Manikrishna_EXP_Resume.pdf"
               download="Amarthi_Manikrishna_Resume.pdf"
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-200"
             >
@@ -107,7 +107,7 @@ export default function Header() {
                   </a>
                 ))}
                 <a
-                  href="/Amarthi_Manikrishna_Final_Resume_compressed.pdf"
+                  href="/Manikrishna_EXP_Resume.pdf"
                   download="Amarthi_Manikrishna_Resume.pdf"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg sm:rounded-2xl bg-white px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-black transition-transform duration-300 hover:-translate-y-0.5"
