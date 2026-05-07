@@ -50,10 +50,10 @@ export default function Hero() {
       <motion.div
         aria-hidden="true"
         className="absolute inset-0 bg-cover bg-no-repeat"
-        style={{
-          backgroundImage: "url(/mine1.png)",
-          backgroundPosition: "78% center",
-        }}
+        // style={{
+        //   backgroundImage: "url(/mine1.png)",
+        //   backgroundPosition: "78% center",
+        // }}
         initial={{ scale: 1.03, x: 30 }}
         animate={{ scale: 1.03, x: 20 }}
         transition={{
@@ -89,7 +89,7 @@ export default function Hero() {
 
             <Reveal variant="up" delay={120}>
               <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                Manikrishna
+                Sandhya
               </h1>
             </Reveal>
 
@@ -97,14 +97,14 @@ export default function Hero() {
               <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
                 Full Stack Developer &{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 via-cyan-200 to-violet-300">
-                  Technical Lead
+                  Team Lead
                 </span>
               </h2>
             </Reveal>
 
             <Reveal variant="up" delay={320}>
               <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base md:text-lg md:leading-8">
-                I design and build scalable fintech systems, payment platforms, and real-world applications, with a strong focus on product thinking, clean architecture, and production-ready execution across web and mobile platforms.
+                I design and build scalable fintech systems, payment platforms, and real-world applications, with a strong focus on product thinking and production-ready execution across web and mobile platforms.
               </p>
             </Reveal>
 
