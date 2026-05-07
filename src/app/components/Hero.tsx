@@ -50,10 +50,10 @@ export default function Hero() {
       <motion.div
         aria-hidden="true"
         className="absolute inset-0 bg-cover bg-no-repeat"
-        // style={{
-        //   backgroundImage: "url(/mine1.png)",
-        //   backgroundPosition: "78% center",
-        // }}
+        style={{
+          backgroundImage: "url(/mine1.png)",
+          backgroundPosition: "78% center",
+        }}
         initial={{ scale: 1.03, x: 30 }}
         animate={{ scale: 1.03, x: 20 }}
         transition={{
