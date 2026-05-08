@@ -3,38 +3,38 @@ import Reveal from "./Reveal";
 const journeyItems = [
   {
     year: "Current",
-    title: "Product-focused Full Stack Developer & Technical Lead",
-    org: "moneyverse.ai",
+    title: "Full Stack Developer & Team Lead",
+    org: "Gowdanar Technologies Pvt Ltd.",
     description:
-      "Building product and platform systems across digital payments, reusable KYC, blockchain-backed identity, and scalable infrastructure that connects traditional finance with decentralized networks.",
+      "Building scalable fintech lending platforms, transaction systems, and production-ready web and mobile applications.",
   },
   {
-    year: "Previously",
-    title: "Full-Stack Development and Product Delivery",
-    org: "GTPL",
+    year: "Oct 2023 - Mar 2024",
+    title: "Software Development Intern",
+    org: "Gowdanar Technologies Pvt Ltd.",
     description:
-      "Built backend systems, responsive interfaces, and production workflows while growing through hands-on product delivery in real engineering environments.",
+      "Worked on frontend and backend development, REST APIs, fintech workflows, and real-world product delivery.",
   },
   {
-    year: "2018 - 2022",
-    title: "B.Tech in Electrical and Electronics Engineering",
+    year: "2019 - 2023",
+    title: "B.Tech in Electronics & Communication Engineering",
     org: "Aditya Engineering College",
     description:
-      "Built an engineering mindset grounded in systems thinking, analytical problem solving, and disciplined execution.",
+      "Built a strong foundation in problem solving, system design, and software development concepts.",
   },
   {
-    year: "2016 - 2018",
+    year: "2017 - 2019",
     title: "Intermediate (MPC)",
-    org: "Sri Chaitanya Junior College",
+    org: "Mohan Junior College",
     description:
-      "Strengthened my foundation in mathematics and logical reasoning, which still shapes how I approach software design today.",
+      "Strengthened analytical thinking and mathematical foundations.",
   },
   {
-    year: "2016",
-    title: "Secondary School Certificate",
-    org: "ZPP High School",
+    year: "2016 - 2017",
+    title: "Secondary School Education",
+    org: "ZPP High School, Navara",
     description:
-      "Established the curiosity, consistency, and self-learning habits that continue to define my journey in tech.",
+      "Developed curiosity, consistency, and self-learning habits.",
   },
 ];
 
@@ -49,17 +49,18 @@ export default function Journey() {
           <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
             My Journey
           </p>
+
           <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
-            From foundations to{" "}
+            From development foundations to{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
-              fintech platform work
+              fintech platform development
             </span>
             .
           </h2>
+
           <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg leading-7 sm:leading-8 text-slate-400">
-            A quick view of the path from engineering foundations to building
-            modern product systems across financial infrastructure and trust-led
-            workflows.
+            A quick overview of my journey building scalable fintech, lending,
+            and transaction-based applications across web and mobile platforms.
           </p>
         </Reveal>
 

@@ -30,164 +30,216 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: "tradedge-platform",
-    title: "Edge-Native Financial Platform",
+    id: "institutional-digital-lending",
+    title: "Institutional Digital Lending Platform",
     description:
-      "A financial operating system for traders to manage payments, financial data, and compliance in one place.",
+      "A scalable lending platform for banks and financial institutions with dynamic workflows and transaction systems.",
+
     longDescription:
-      "Architecting a cross-border financial platform using Xflow APIs, designed as a unified system for managing payments, receivables, financial data, and compliance workflows. The platform acts as a financial operating system for traders, enabling structured payment flows, system-level financial tracking, and integration with external financial services. Focused on scalability, modular architecture, and real-world financial workflows.",
+      "Built an institutional digital lending platform focused on loan lifecycle management, repayment workflows, foreclosure handling, loan extensions, wallet systems, and secure financial transaction management. Developed scalable backend systems, dynamic product workflows, RBAC, and employee onboarding modules for financial institutions.",
+
     icon: Shield,
+
     technologies: [
-      "FastAPI",
-      "PostgreSQL",
-      "GCP",
-      "Xflow APIs",
-      "Microservices",
+      "Django",
       "React",
       "Next.js",
-      "cockroach db"
+      "React Native",
+      "PostgreSQL",
+      "CockroachDB",
+      "Kafka",
+      "Redis",
+      "Docker",
+      "GCP",
     ],
+
     features: [
-      "Cross-border payment integration (Xflow)",
-      "Financial data and transaction management",
-      "Receivables and payout workflows",
-      "Compliance-aware system design",
-      "Microservices-based architecture",
+      "Dynamic loan workflows",
+      "Loan lifecycle management",
+      "RBAC & employee onboarding",
+      "Repayment & foreclosure",
+      "Wallet & transaction systems",
     ],
-    status: "In Development",
+
+    status: "Production Ready",
     category: "FinTech",
     accent: "99, 102, 241",
     span: "md:col-span-2 md:row-span-1",
   },
+
   {
-    id: "b2b-payments-platform",
-    title: "B2B Payments Platform",
+    id: "p2p-lending-platform",
+    title: "P2P Lending Platform",
+
     description:
-      "A scalable platform for handling business payments through API integrations and transaction orchestration.",
+      "A peer-to-peer lending platform connecting lenders and borrowers through secure digital workflows.",
+
     longDescription:
-      "Designed and built a B2B payments platform focused on handling business transactions through external API integrations. The system manages end-to-end payment flows including initiation, processing, tracking, and system-level orchestration. Emphasis was placed on building a scalable backend capable of handling high-volume financial operations with reliability and structured transaction handling.",
-    icon: DollarSign,
+      "Worked on a scalable P2P lending application with borrower onboarding, lender management, repayment tracking, notifications, wallet systems, and transaction workflows using microservices architecture and REST APIs.",
+
+    icon: HandCoins,
+
     technologies: [
-      "FastAPI",
-      "PostgreSQL",
-      "API Integrations",
-      "Distributed Systems",
+      "Django",
       "React",
       "Next.js",
+      "React Native",
+      "PostgreSQL",
+      "Docker",
+      "GCP",
     ],
+
     features: [
-      "End-to-end payment flow orchestration",
-      "External API integrations for payments",
-      "Transaction lifecycle management",
-      "Scalable backend architecture",
-      "Secure financial data handling",
+      "Borrower & lender onboarding",
+      "Repayment tracking",
+      "Wallet management",
+      "Transaction history",
+      "Payment integrations",
     ],
+
     status: "Production Ready",
     category: "FinTech",
     accent: "34, 197, 94",
     span: "md:col-span-1 md:row-span-1",
   },
+
   {
-    id: "wellness-booking",
-    title: "Regenerative Wellness Booking App",
+    id: "payment-transaction-system",
+
+    title: "Payment & Transaction System",
+
     description:
-      "A 60-day therapy booking product with smart scheduling, progress tracking, and real-time updates.",
+      "Backend systems for payment workflows, wallet operations, and financial transaction processing.",
+
     longDescription:
-      "A comprehensive wellness booking mobile application designed around long-running therapy journeys. The product combines a user-friendly booking flow, scheduling logic, therapist coordination, and real-time updates to support a structured 60-day care experience.",
-    icon: Smartphone,
+      "Developed scalable backend systems for payment processing, wallet integrations, transaction workflows, and financial data handling with secure API integrations and production-ready architecture.",
+
+    icon: DollarSign,
+
     technologies: [
-      "React Native",
       "Django",
-      "GCP",
-      "Real-time Database",
+      "REST APIs",
+      "PostgreSQL",
+      "Redis",
       "React",
       "Next.js",
     ],
+
     features: [
-      "60-day therapy program management",
-      "Smart session scheduling algorithm",
-      "Real-time notifications and updates",
-      "User progress tracking",
-      "Therapist dashboard",
+      "Payment workflows",
+      "Wallet operations",
+      "Transaction processing",
+      "REST API integrations",
+      "Financial data handling",
     ],
-    status: "",
-    category: "Mobile App",
+
+    status: "Production Ready",
+    category: "FinTech",
     accent: "59, 130, 246",
     span: "md:col-span-2 xl:row-span-2",
   },
+
   {
-    id: "blockchain-kyc",
-    title: "Blockchain KYC Platform",
+    id: "rbac-management-system",
+
+    title: "RBAC & Employee Management",
+
     description:
-      "Secure identity verification powered by SUI blockchain and advanced authentication layers.",
+      "A secure role-based access management system for financial institutions.",
+
     longDescription:
-      "A secure identity and compliance platform built around blockchain-backed verification workflows. The system combines decentralized verification ideas with practical product needs like authentication, document safety, compliance visibility, and user trust.",
+      "Built branch management, employee onboarding, and module-based permission systems allowing financial institutions to securely manage employees, modules, and operational access.",
+
     icon: Shield,
+
     technologies: [
-      "React Native",
       "Django",
-      "SUI Blockchain",
       "React",
       "Next.js",
-      "Move Language",
+      "PostgreSQL",
+      "JWT Authentication",
     ],
+
     features: [
-      "Decentralized identity verification",
-      "JWT authentication system",
-      "Fiat-to-NFT minting logic",
-      "Secure document storage",
-      "Compliance dashboard",
+      "Branch management",
+      "Employee onboarding",
+      "Role-based access control",
+      "Module permissions",
+      "Secure authentication",
     ],
-    status: "",
-    category: "Blockchain",
+
+    status: "Production Ready",
+    category: "Enterprise",
     accent: "168, 85, 247",
     span: "md:col-span-1 xl:row-span-2",
   },
+
   {
-    id: "stablecoin-payments",
-    title: "Stablecoin Payment Platform",
+    id: "mobile-fintech-app",
+
+    title: "Fintech Mobile Application",
+
     description:
-      "High-performance transaction experience optimized for speed, scale, and low-cost transfers.",
+      "A React Native application for lending workflows, transactions, and wallet systems.",
+
     longDescription:
-      "A fintech platform focused on stablecoin transactions, built to balance speed, security, and a reliable payment workflow. The experience centers on usability while still supporting wallet connectivity, transaction records, and scalable backend handling.",
-    icon: DollarSign,
-    technologies: ["React", "Django", "Blockchain APIs", "React.js", "Next.js"],
-    features: [
-      "Send and receive stablecoins",
-      "Multi-wallet integration",
-      "Transaction history",
-      "Low-cost processing",
-      "Advanced security protocols",
+      "Built React Native mobile applications focused on lending operations, transaction visibility, wallet systems, repayment tracking, and notification workflows across Android and iOS platforms.",
+
+    icon: Smartphone,
+
+    technologies: [
+      "React Native",
+      "Django",
+      "REST APIs",
+      "Firebase",
+      "CockroachDB",
     ],
+
+    features: [
+      "Android & iOS support",
+      "Wallet systems",
+      "Loan tracking",
+      "Push notifications",
+      "Transaction visibility",
+    ],
+
     status: "Production Ready",
-    category: "FinTech",
+    category: "Mobile App",
     accent: "14, 165, 233",
     span: "md:col-span-1 md:row-span-1",
   },
+
   {
-    id: "p2p-lending",
-    title: "P2P Lending Platform",
+    id: "financial-workflow-system",
+
+    title: "Financial Workflow System",
+
     description:
-      "A lending product connecting borrowers and lenders through secure, transparent flows.",
+      "A scalable workflow system for financial operations and transaction-based processes.",
+
     longDescription:
-      "A peer-to-peer lending application designed to streamline direct borrower-lender interaction. The product explores smarter credit workflows, secure agreements, transparent repayment visibility, and stronger trust throughout the lending lifecycle.",
-    icon: HandCoins,
+      "Developed workflow-driven financial systems supporting approvals, operational tracking, scalable backend processing, and dynamic transaction workflows for fintech platforms.",
+
+    icon: DollarSign,
+
     technologies: [
-      "React Native",
-      "Node.js",
-      "CockroachDB",
+      "FastAPI",
       "Django",
-      "React",
-      "Next.js",
+      "Kafka",
+      "Redis",
+      "PostgreSQL",
+      "Docker",
     ],
+
     features: [
-      "Direct borrower-lender matching",
-      "Automated credit scoring",
-      "Secure loan agreements via smart contracts",
-      "Real-time payment tracking",
-      "Dispute resolution system",
+      "Dynamic workflows",
+      "Approval processes",
+      "Backend processing",
+      "Transaction orchestration",
+      "Microservices architecture",
     ],
-    status: "",
+
+    status: "In Development",
     category: "FinTech",
     accent: "245, 158, 11",
     span: "md:col-span-1 md:row-span-1",
@@ -233,16 +285,18 @@ export default function Projects() {
           <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
             Selected Works
           </p>
+
           <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
-            Product-focused builds with{" "}
+            Building scalable{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
-              depth, scale, and delivery
+              fintech and digital products
             </span>
             .
           </h2>
+
           <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg leading-7 sm:leading-8 text-slate-400">
-            Mobile, blockchain, fintech, and platform work shaped by real-world
-            product constraints rather than demo-only engineering.
+            Fintech, lending, transaction systems, and web & mobile applications
+            built with real-world product experience and production-ready delivery.
           </p>
         </Reveal>
 

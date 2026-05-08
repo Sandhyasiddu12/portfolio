@@ -22,14 +22,14 @@ const contactInfo: Array<{
   {
     icon: Mail,
     label: "Email",
-    value: "maniamarthi@gmail.com",
-    href: "mailto:maniamarthi@gmail.com",
+    value: "sandhyasiddu0405@gmail.com",
+    href: "mailto:sandhyasiddu0405@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+91 9502728137",
-    href: "tel:+919502728137",
+    value: "+91 6304523332",
+    href: "tel:+916304523332",
   },
   {
     icon: MapPin,
@@ -46,17 +46,17 @@ const socialLinks: Array<{
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/manikrishna-amarthi-001427217/",
+    href: "https://www.linkedin.com/in/sandhya-siddu-245804251/",
   },
   {
     icon: Github,
     label: "GitHub",
-    href: "https://github.com/manikrishnaamarthi",
+    href: "https://github.com/Sandhyasiddu12",
   },
   {
     icon: Mail,
     label: "Email",
-    href: "mailto:maniamarthi@gmail.com",
+    href: "mailto:sandhyasiddu0405@gmail.com",
   },
 ];
 
@@ -212,8 +212,8 @@ export default function Contact() {
               </div>
 
               <a
-                href="/Manikrishna_EXP_Resume.pdf"
-                download="Amarthi_Manikrishna_Resume.pdf"
+                href="/Sandhya_Siddu_Resume.pdf"
+                download="Sandhya_Siddu_Resume.pdf"
                 className="mt-6 sm:mt-8 inline-flex items-center gap-2 rounded-full bg-white px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-1 hover:bg-slate-200 w-full sm:w-auto justify-center sm:justify-start"
               >
                 Download Resume

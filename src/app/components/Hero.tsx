@@ -24,7 +24,7 @@ export default function Hero() {
       icon: Linkedin,
     },
     {
-      href: "https://github.com/manikrishnaamarthi",
+      href: "https://github.com/Sandhyasiddu12",
       label: "GitHub",
       icon: Github,
     },
@@ -49,13 +49,13 @@ export default function Hero() {
     >
       <motion.div
         aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-no-repeat brightness-110"
         style={{
-          backgroundImage: "url(/mine1.png)",
-          backgroundPosition: "78% center",
+          backgroundImage: "url(/sid.png)",
+          backgroundPosition: "82% center",
         }}
-        initial={{ scale: 1.03, x: 30 }}
-        animate={{ scale: 1.03, x: 20 }}
+        initial={{ scale: 1.03, x: 60 }}
+        animate={{ scale: 1.03, x: 45 }}
         transition={{
           duration: 0.8,
           ease: "easeOut",
@@ -118,8 +118,8 @@ export default function Hero() {
                   <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
-                  href="/Manikrishna_EXP_Resume.pdf"
-                  download="Amarthi_Manikrishna_Resume.pdf"
+                  href="/Sandhya_EXP_Resume.pdf"
+                  download="Sandhya_Siddu_Resume.pdf"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 w-full sm:w-auto"
                 >
                   <span>Download Resume</span>

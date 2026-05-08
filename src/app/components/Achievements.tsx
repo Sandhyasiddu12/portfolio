@@ -20,60 +20,54 @@ const achievements: Array<{
     icon: Cloud,
     title: "Docker and GCP Deployment",
     description:
-      "Hosted live web applications using Docker on Google Cloud Platform.",
+      "Hosted and deployed scalable web applications using Docker on Google Cloud Platform.",
     category: "Cloud Infrastructure",
   },
   {
     icon: Smartphone,
     title: "Cross-Platform Mobile Apps",
     description:
-      "Built and released native mobile applications for Android and iOS.",
+      "Built and deployed React Native applications for Android and iOS platforms.",
     category: "Mobile Development",
   },
   {
     icon: Shield,
-    title: "ZK Login Authentication",
+    title: "Secure Authentication Systems",
     description:
-      "Implemented secure zero-knowledge login and JWT-based authentication systems.",
+      "Implemented JWT authentication and secure role-based access control systems.",
     category: "Security",
   },
   {
-    icon: Brain,
-    title: "AI Workflow Integration",
-    description: "Integrated AI workflows into production applications.",
-    category: "Artificial Intelligence",
-  },
-  {
     icon: Wrench,
-    title: "Reusable Django Systems",
-    description: "Created scalable and maintainable Django backend systems.",
+    title: "Scalable Backend Systems",
+    description:
+      "Built scalable Django and FastAPI backend systems for fintech applications.",
     category: "Backend Development",
   },
   {
     icon: PenTool,
-    title: "UI and UX Design with Figma",
+    title: "UI/UX Design with Figma",
     description:
-      "Designed intuitive interfaces for web and mobile applications using Figma.",
+      "Designed modern web and mobile application interfaces using Figma.",
     category: "Design",
   },
   {
     icon: Award,
-    title: "Developer to Product Leader",
+    title: "Developer to Team Lead",
     description:
-      "Grew from individual contributor work into broader product ownership.",
+      "Grew from development responsibilities into team coordination and product delivery.",
     category: "Career Growth",
   },
 ];
 
 const summaryMetrics = [
-  { value: "2", label: "Web apps hosted on GCP" },
-  { value: "2", label: "Native apps shipped" },
-  { value: "10+", label: "AI integrations completed" },
-  { value: "3", label: "Major Django systems built" },
-  { value: "5+", label: "Figma design systems created" },
-  { value: "1", label: "Full product lifecycle managed" },
+  { value: "2+", label: "Fintech platforms delivered" },
+  { value: "2", label: "Mobile apps deployed" },
+  { value: "10+", label: "REST APIs developed" },
+  { value: "3+", label: "Backend systems built" },
+  { value: "5+", label: "UI/UX designs created" },
+  { value: "1+", label: "Products managed end-to-end" },
 ];
-
 export default function Achievements() {
   return (
     <section

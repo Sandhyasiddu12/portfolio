@@ -9,11 +9,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Amarthi Manikrishna | Full-Stack Developer",
+  title: "Sandhya Siddu | Full-Stack Developer",
   description:
-    "Portfolio of Amarthi Manikrishna, a full-stack developer building product-led experiences across fintech, blockchain, mobile, and AI.",
+    "Portfolio of Sandhya Siddu, a Full Stack Developer building scalable fintech, mobile, and real-time digital products across web and mobile platforms",
   icons: {
-    icon: "/logo.png",
+    icon: "/logo_sid.png",
   },
 };
 

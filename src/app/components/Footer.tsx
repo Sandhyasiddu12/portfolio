@@ -8,8 +8,7 @@ const quickLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-const focusAreas = ["Web Platforms", "Mobile Apps", "Blockchain Products", "AI Integrations"];
-
+const focusAreas = ["Fintech Platforms", "Mobile Apps", "Lending Systems", "Transaction Workflows",];
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -24,11 +23,11 @@ export default function Footer() {
                   Available for collaborations
                 </span> */}
                 <h3 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl font-semibold text-white">
-                  Amarthi Manikrishna
+                  Siddu Sandhya
                 </h3>
                 <p className="mt-3 sm:mt-4 max-w-2xl text-xs sm:text-sm md:text-base leading-6 sm:leading-8 text-slate-400">
-                  Full-stack developer building product-led experiences across
-                  fintech, blockchain, mobile, and AI.
+                  Full Stack Developer & Team Lead building scalable fintech, lending,
+                  and production-ready web & mobile applications.
                 </p>
               </div>
 
@@ -66,7 +65,7 @@ export default function Footer() {
             </div>
 
             <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:gap-4 border-t border-white/10 pt-5 sm:pt-6 text-xs sm:text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-              <p>© {currentYear} Amarthi Manikrishna.</p>
+              <p>© {currentYear} Siddu Sandhya.</p>
               <a
                 href="#home"
                 className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"

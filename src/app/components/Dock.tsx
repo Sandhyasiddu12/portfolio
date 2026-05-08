@@ -41,8 +41,8 @@ const dockItems: DockItem[] = [
     id: "resume",
     icon: FileText,
     label: "Resume",
-    href: "/Manikrishna_EXP_Resume.pdf",
-    download: "Manikrishna_EXP_Resume.pdf",
+    href: "/Sandhya_EXP_Resume.pdf",
+    download: "Sandhya_Siddu_Resume.pdf",
   },
 ];
 

@@ -13,37 +13,37 @@ const highlights: Array<{
   description: string;
 }> = [
   {
-    icon: Blocks,
-    title: "Product and Architecture",
-    description:
-      "Translating business requirements into reliable architecture, workflows, and production-ready systems.",
+  icon: Blocks,
+  title: "Fintech Platforms",
+  description:
+    "Building scalable lending systems, transaction workflows, and production-ready backend applications.",
   },
   {
     icon: Landmark,
-    title: "FinTech and Transaction Systems",
+    title: "Payment & Transaction Systems",
     description:
-      "Payments, financial data systems, transaction processing, and cross-border flows built for accuracy and traceability.",
+      "Payment integrations, wallet operations, financial workflows, and reliable transaction processing systems.",
   },
   {
     icon: Code,
-    title: "Full-Stack Platforms",
+    title: "Full-Stack Development",
     description:
-      "FastAPI, Django, React, Next.js, PostgreSQL, CockroachDB, Redis, and practical full-stack delivery.",
+      "Django, FastAPI, React, Next.js, PostgreSQL, CockroachDB, Redis, and scalable full-stack development.",
   },
   {
     icon: Smartphone,
-    title: "Mobile and Blockchain",
+    title: "Web & Mobile Applications",
     description:
-      "React Native apps for Android and iOS, plus hands-on work with Sui, Stellar, wallet flows, and token transfers.",
+      "Building responsive web platforms and React Native applications for Android and iOS.",
   },
 ];
 
 const focusAreas = [
-  "Payments Platforms",
-  "Financial Data Systems",
-  "Cross-Border Flows",
-  "Web and Mobile Platforms",
-  "Blockchain and Wallets",
+  "Fintech Platforms",
+  "Payment Systems",
+  "Lending Workflows",
+  "Web & Mobile Apps",
+  "Transaction Systems",
 ];
 
 export default function About() {
@@ -58,8 +58,8 @@ export default function About() {
             <div className="relative overflow-hidden rounded-2xl md:rounded-[2.25rem] border border-white/10 bg-white/5 p-4 sm:p-5 md:p-6 backdrop-blur-2xl">
               <div className="relative overflow-hidden rounded-xl md:rounded-[1.75rem] border border-white/10 bg-black/25">
                 <img
-                  src="/mine2.jpeg"
-                  alt="Amarthi Manikrishna portrait"
+                  src="/sid1.png"
+                  alt="Sandhya Siddu portrait"
                   className="h-[22rem] w-full object-cover object-[center_18%] sm:h-80 md:h-[420px] md:object-top lg:h-[450px]"
                 />
               </div>
@@ -75,19 +75,18 @@ export default function About() {
                 <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white">
                   Engineering ideas into{" "}
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
-                    polished, production-ready
+                    production-ready digital
                   </span>{" "}
                   experiences
                 </h2>
                 <h3 className="mt-5 sm:mt-6 text-xl sm:text-2xl font-semibold text-white">
-                  Designing systems that scale, perform, and deliver in production.
+                  Designing scalable systems that perform reliably in production.
                 </h3>
                 <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-7 sm:leading-8 text-slate-300">
-                  I&apos;m a product-focused technical architect with hands-on
-                  experience building scalable fintech, B2B, and real-time
-                  platforms. My work sits at the intersection of product and
-                  engineering, translating business requirements into reliable,
-                  scalable systems.
+                  I&apos;m a product-focused Full Stack Developer & Team Lead with hands-on
+                  experience building scalable fintech, lending, and real-time
+                  platforms. My work focuses on transforming business requirements into reliable and
+                  scalable applications across web and mobile ecosystems.
                 </p>
               </div>
             </Reveal>
@@ -98,16 +97,16 @@ export default function About() {
               <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(260px,320px)] xl:gap-10">
                 <div className="space-y-4 sm:space-y-5">
                   <p className="text-sm sm:text-base leading-7 sm:leading-8 text-slate-400">
-                    My focus is on translating business requirements into reliable systems—covering architecture, workflows, and production-ready execution. I work across the full lifecycle, from system design and implementation to deployment and operational readiness.
+                    My focus is on transforming business requirements into reliable applications covering scalable workflows, backend systems, and production-ready execution. I work across the complete development lifecycle, from requirement analysis and implementation to deployment and production readiness.
                   </p>
                   <p className="text-sm sm:text-base leading-7 sm:leading-8 text-slate-400">
-                    I’ve built and contributed to platforms involving payments, financial data systems, transaction processing, booking and availability systems, and cross-border flows—where accuracy, traceability, and reliability are critical.
+                    I’ve built and contributed to platforms involving payments, financial systems, transaction processing, and lending workflows where accuracy, scalability, and reliability are critical.
                   </p>
                   <p className="text-sm sm:text-base leading-7 sm:leading-8 text-slate-400">
-                    On the technical side, I work with FastAPI, Django, PostgreSQL, CockroachDB, Redis, React, Next.js, and React Native (Android & iOS). I’ve also worked with blockchain systems including Sui and Stellar, building wallet flows, token transfers, and secure transaction models.
+                    On the technical side, I work with Django, FastAPI, PostgreSQL, CockroachDB, Redis, React, Next.js, and React Native, building scalable web and mobile applications.
                   </p>
                   <p className="text-sm sm:text-base leading-7 sm:leading-8 text-slate-400">
-                    I care about building systems that are practical, scalable, and aligned with real-world use cases—not just technically sound, but production-ready.
+                    I focus on building practical, scalable, and production-ready systems aligned with real-world business needs.
                   </p>
                 </div>
 

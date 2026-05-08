@@ -4,46 +4,44 @@ const skillCategories = [
   {
     title: "Frontend",
     description:
-      "Interfaces that feel polished, responsive, and production-ready across web and mobile.",
-    items: ["React", "Next.js", "React Native", "Android", "iOS", "TypeScript"],
+      "Building responsive and production-ready web and mobile applications.",
+    items: ["React", "Next.js", "React Native", "TypeScript", "JavaScript", "Tailwind CSS"],
   },
   {
-    title: "Backend and APIs",
+    title: "Backend & APIs",
     description:
-      "Scalable services, clean API design, backend reliability, and production delivery discipline.",
+      "Scalable backend systems, REST APIs, and fintech workflow development.",
     items: [
-      "FastAPI",
       "Django",
+      "FastAPI",
       "Python",
-      "RESTful APIs",
+      "REST APIs",
       "Redis",
-      "Event-Driven Patterns",
+      "Kafka",
     ],
   },
   {
-    title: "Blockchain and Wallet Systems",
+    title: "Fintech & Transaction Systems",
     description:
-      "Practical blockchain exploration built around wallet flows, token movement, and secure transaction models.",
+      "Payment integrations, lending workflows, wallet systems, and transaction processing.",
     items: [
-      "Sui",
-      "Stellar",
-      "Wallet Interactions",
-      "Token Transfers",
-      "Secure Transaction Models",
+      "Razorpay",
+      "Payment Systems",
+      "Transaction Workflows",
+      "Loan Lifecycle",
+      "RBAC",
     ],
   },
   {
-    title: "Cloud and Tools",
+    title: "Cloud & Tools",
     description:
-      "Deployment, infrastructure, databases, and team tooling that keep releases moving.",
+      "Deployment, databases, infrastructure, and production-ready delivery tools.",
     items: [
       "PostgreSQL",
       "CockroachDB",
       "Docker",
       "GCP",
-      "Infrastructure Setup",
       "Git",
-      "Production Deployment",
       "Postman",
     ],
   },
@@ -60,17 +58,18 @@ export default function Skills() {
           <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.32em] text-sky-300">
             Technical Arsenal
           </p>
+
           <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
-            A practical stack for building{" "}
+            A modern stack for building{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-violet-300">
-              full-stack products
+              scalable fintech products
             </span>
             .
           </h2>
+
           <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg leading-7 sm:leading-8 text-slate-400">
-            The stack I rely on to build product-focused fintech, B2B, and
-            real-time systems across web, mobile, backend infrastructure, and
-            blockchain exploration.
+            The technologies I use to build scalable fintech platforms, transaction
+            systems, and production-ready web and mobile applications.
           </p>
         </Reveal>
 
